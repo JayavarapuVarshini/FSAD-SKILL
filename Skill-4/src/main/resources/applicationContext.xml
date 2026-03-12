@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Task 4a – XML Configuration
+        Bean 1: Constructor Injection – all 4 fields via <constructor-arg>
+    -->
+    <bean id="studentConstructor" class="com.spring.xml.model.Student">
+        <constructor-arg name="studentId" value="101"/>
+        <constructor-arg name="name"      value="Alice Johnson"/>
+        <constructor-arg name="course"    value="Computer Science"/>
+        <constructor-arg name="year"      value="2"/>
+    </bean>
+
+    <!--
+        Bean 2: Constructor Injection first, then Setter Injection overrides
+        course and year (Task 3 – demonstrating setter injection)
+    -->
+    <bean id="studentSetter" class="com.spring.xml.model.Student">
+        <constructor-arg name="studentId" value="102"/>
+        <constructor-arg name="name"      value="Bob Smith"/>
+        <constructor-arg name="course"    value="default"/>
+        <constructor-arg name="year"      value="1"/>
+        <!-- Setter injection overrides the values set by constructor -->
+        <property name="course" value="Information Technology"/>
+        <property name="year"   value="3"/>
+    </bean>
+
+</beans>
